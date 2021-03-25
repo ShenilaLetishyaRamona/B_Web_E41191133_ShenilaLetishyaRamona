@@ -8,7 +8,12 @@ class ManagementUserController extends Controller
 {
     public function index()
     {
-        return 'Ini Profil Controller';
+        // return 'Ini Profil Controller';
+        $nama = "Shenila Letishya Ramona";
+        
+        $pelajaran = array('Algoritma & Pemrograman","Kalkulus","Pemrograman Web" ');
+
+        return view('home',compact('nama','pelajaran'));
     }
 
     public function create()

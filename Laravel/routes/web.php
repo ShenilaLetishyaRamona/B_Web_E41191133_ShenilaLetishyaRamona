@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    $nama = "Shenila Letishya Ramona";
+        
+    $pelajaran = array('Algoritma & Pemrograman","Kalkulus","Pemrograman Web" ');
+    return view('home',compact('nama','pelajaran'));
+});
 
-Route::get('users','ManagementUserController@index');
+// Route::get('users','ManagementUserController@index');
 
-// Route::resource('user','ManagementUserController@index');
+Route::resource('user','ManagementUserController');
