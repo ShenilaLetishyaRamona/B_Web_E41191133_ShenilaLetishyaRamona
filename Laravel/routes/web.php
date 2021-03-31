@@ -13,13 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $nama = "Shenila Letishya Ramona";
-        
-    $pelajaran = array('Algoritma & Pemrograman","Kalkulus","Pemrograman Web" ');
-    return view('home',compact('nama','pelajaran'));
-});
+// Route::get('/', function () {
+    
+//     return view('home');
+// });
 
 // Route::get('users','ManagementUserController@index');
 
 Route::resource('user','ManagementUserController');
+
+Route::group(['namespace' => 'Frontend'],
+function () {
+    Route::resource('/home', HomeController::class);
+}
+);
