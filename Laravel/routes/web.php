@@ -23,7 +23,13 @@ use Illuminate\Support\Facades\Route;
 Route::resource('user','ManagementUserController');
 
 Route::group(['namespace' => 'Frontend'],
-function () {
-    Route::resource('/home', HomeController::class);
-}
+    function () {
+        Route::resource('/home', HomeController::class);
+    }
+);
+
+Route::group(['namespace' => 'Backend'],
+    function () {
+        Route::resource('/dashboard', DashboardController::class);
+    }
 );
