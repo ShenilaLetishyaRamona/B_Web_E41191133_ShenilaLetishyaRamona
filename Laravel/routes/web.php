@@ -28,8 +28,15 @@ Route::group(['namespace' => 'Frontend'],
     }
 );
 
-Route::group(['namespace' => 'Backend'],
-    function () {
-        Route::resource('/dashboard', DashboardController::class);
-    }
-);
+Auth::routes();
+Route::middleware(['auth'])->group(function () {
+
+    Route::group(['namespace' => 'Backend'],
+        function () {
+            Route::resource('/dashboard', DashboardController::class);
+            Route::resource('/pendidikan', PendidikanController::class);
+            Route::resource('/pengalaman_kerja', PengalamanKerjaController::class);
+        }
+    );
+
+});
